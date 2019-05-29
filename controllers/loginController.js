@@ -5,10 +5,16 @@ module.exports = {
     res.render("login");
   },
   postUserLogin: (req, res) => {
-    Uzer.findOne({ where: { name: req.body.username } })
+    Uzer.findOne({
+      where: { name: req.body.username, password: req.body.password }
+    })
       .then(foundUser => {
         console.log(foundUser);
-        if (req.body.username !== null && foundUser) {
+        if (
+          req.body.username !== null &&
+          req.body.password !== null &&
+          foundUser
+        ) {
           req.session.user = foundUser.dataValues;
           res.redirect("/profile");
         } else {
