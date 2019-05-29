@@ -21,6 +21,7 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const morgan = require("morgan");
+const flash = require("express-flash");
 
 /* Application conf */
 const port = process.env.PORT || 3000;
@@ -31,6 +32,7 @@ app.set("view engine", "ejs");
 
 /* Middleware: NPM packages */
 app.use(morgan("dev"));
+app.use(flash());
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
