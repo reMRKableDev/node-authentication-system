@@ -1,7 +1,7 @@
 {
   "name": "auth-system",
   "version": "1.0.0",
-  "description": "A short introduction to authentificating with Node.js",
+  "description": "A short introduction to authenticating with Node.js",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
