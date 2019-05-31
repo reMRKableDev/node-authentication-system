@@ -22,6 +22,7 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const morgan = require("morgan");
 const flash = require("express-flash");
+const { check } = require("express-validator/check");
 
 /* Application conf */
 const port = process.env.PORT || 3000;
@@ -32,7 +33,6 @@ app.set("view engine", "ejs");
 
 /* Middleware: NPM packages */
 app.use(morgan("dev"));
-app.use(flash());
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -44,6 +44,7 @@ app.use(
     saveUninitialized: false
   })
 );
+app.use(flash());
 
 /* Custom Middleware */
 let isUserLoggedIn = (req, res, next) => {
@@ -58,7 +59,25 @@ let isUserLoggedIn = (req, res, next) => {
 app.get("/", isUserLoggedIn, getHome);
 
 app.get("/register", isUserLoggedIn, getRegistrationPage);
-app.post("/register", postUserRegistration);
+app.post(
+  "/register",
+  [
+    check("email")
+      .isEmail()
+      .withMessage(
+        "Please use a proper email format like 'name@mailservice.com'!"
+      ),
+    check("username")
+      .isAlphanumeric()
+      .withMessage(
+        "Sorry! Your username may only contain letters and/or numbers"
+      ),
+    check("password")
+      .isLength({ min: 5 })
+      .withMessage("Your password is too short, choose a longer one!")
+  ],
+  postUserRegistration
+);
 
 app.get("/login", isUserLoggedIn, getLoginPage);
 app.post("/login", postUserLogin);

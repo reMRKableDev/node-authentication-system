@@ -83,6 +83,17 @@ div.content {
   text-align: center;
 }
 
+.error-msg {
+  color: #d8000c;
+  background-color: #ffd2d2;
+  padding: 5px;
+  width: 100%;
+}
+
+sup {
+  font-size: 10px;
+}
+
 @media screen and (max-width: 700px) {
   .sidebar {
     width: 100%;
