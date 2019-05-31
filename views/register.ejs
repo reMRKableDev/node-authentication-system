@@ -20,12 +20,30 @@
         <form method="POST" action="/register" class="form-container">
             <h1>Registration</h1>
             <p>Fill in your information and gain access to our super secret and informative site</p>
+            <%if(messages.errorUsername) {%>
+            <div class="error-msg centering-text">
+                <%=messages.errorUsername%>
+            </div>
+            <%}%>
+            <%if(messages.errorEmail) {%>
+            <div class="error-msg centering-text">
+                <%=messages.errorEmail%>
+            </div>
+            <%}%>
+            
+            <%if(locals.errors) {%>
+            <% errors.forEach( error => {%>
+            <div class="error-msg centering-text">
+                <%= error.msg%>
+            </div>
+            <% })%>
+            <% }%>
             <hr>
             <label for="username"><b>Username</b></label>
             <input type="text" name="username" placeholder="Choose Username" autocomplete="off" required>
             <label for="email"><b>Email</b></label>
             <input type="email" name="email" placeholder="Enter Email" autocomplete="off" required>
-            <label for="password"><b>Password</b></label>
+            <label for="password"><b>Password</b> <sup>(over 5 characters)</sup> </label>
             <input type="password" name="password" placeholder="Choose Password" autocomplete="off" required>
             <hr>
             <div>
