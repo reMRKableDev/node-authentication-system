@@ -4,19 +4,19 @@ const { connector, Sequelize } = require("../config/dbConfig");
 module.exports = connector.define("uzer", {
   name: {
     type: Sequelize.STRING,
-    validate: { notEmpty: true }
+    validate: { notEmpty: true },
   },
   email: {
     type: Sequelize.STRING,
     validate: {
       notEmpty: true,
-      isEmail: true
-    }
+      isEmail: true,
+    },
   },
   password: {
     type: Sequelize.STRING,
     validate: {
-      notEmpty: true
-    }
-  }
+      notEmpty: true,
+    },
+  },
 });
