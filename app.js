@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 /* Database configuration */
-const { connector } = require("./database/config/db.config");
+const { connector } = require("./database/models/");
 
 /* Controllers */
 const getHome = require("./api/controllers/homeController");
