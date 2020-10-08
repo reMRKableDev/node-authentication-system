@@ -1,4 +1,4 @@
-const Uzer = require("../../database/models/Uzer");
+const User = require("../../database/models/User");
 const bcrypt = require("bcrypt");
 
 module.exports = {
@@ -6,7 +6,7 @@ module.exports = {
     res.render("login");
   },
   postUserLogin: (req, res) => {
-    Uzer.findOne({
+    User.findOne({
       where: { name: req.body.username },
     })
       .then((foundUser) => {

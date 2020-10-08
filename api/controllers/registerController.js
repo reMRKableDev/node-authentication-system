@@ -1,4 +1,4 @@
-const Uzer = require("../../database/models/Uzer");
+const User = require("../../database/models/User");
 const { validationResult } = require("express-validator/check");
 const bcrypt = require("bcrypt");
 
@@ -13,7 +13,7 @@ module.exports = {
       req.session.errors = errors.array();
       res.redirect("/register");
     } else {
-      Uzer.count({ where: { name: req.body.username } })
+      User.count({ where: { name: req.body.username } })
         .then((results) => {
           if (results > 0) {
             req.flash(
@@ -25,7 +25,7 @@ module.exports = {
             bcrypt
               .hash(req.body.password, 10)
               .then((hashedPassword) => {
-                Uzer.findOrCreate({
+                User.findOrCreate({
                   where: {
                     email: req.body.email,
                   },
