@@ -16,8 +16,20 @@
         <a href="/logout">Logout</a>
     </div>
 
+//Registered User's details
     <div class="content">
-        <h1 class="centering-text">Hello from profile</h1>
+        <div class="row">
+                <div class="col-sm-6">
+                    <div class="well">
+                        <h3><span class="fa fa-user"></span> Local User</h3>
+
+                        <p>
+                            <strong>id</strong> <%= user._id %> <br>
+                            <strong>email</strong> <%= user.username %> <br>
+                            <strong>password</strong> <%= user.password %>
+                        </p>
+                    </div>
+                </div>
     </div>
 </body>
 
