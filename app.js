@@ -4,17 +4,17 @@ require("dotenv").config();
 const { connector } = require("./database/config/dbConfig");
 
 /* Controllers */
-const getHome = require("./controllers/homeController");
-const getProfile = require("./controllers/profileController");
-const getLogout = require("./controllers/logoutController");
+const getHome = require("./api/controllers/homeController");
+const getProfile = require("./api/controllers/profileController");
+const getLogout = require("./api/controllers/logoutController");
 const {
   getRegistrationPage,
-  postUserRegistration
-} = require("./controllers/registerController");
+  postUserRegistration,
+} = require("./api/controllers/registerController");
 const {
   getLoginPage,
-  postUserLogin
-} = require("./controllers/loginController");
+  postUserLogin,
+} = require("./api/controllers/loginController");
 
 /* NPM packages */
 const express = require("express");
@@ -41,7 +41,7 @@ app.use(
     name: process.env.SESSION_COOKIE,
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
   })
 );
 app.use(flash());
@@ -74,7 +74,7 @@ app.post(
       ),
     check("password")
       .isLength({ min: 5 })
-      .withMessage("Your password is too short, choose a longer one!")
+      .withMessage("Your password is too short, choose a longer one!"),
   ],
   postUserRegistration
 );
@@ -90,4 +90,6 @@ connector
   .then(() => {
     app.listen(port, () => console.log(`I've got ears on port: ${port}`));
   })
-  .catch(error => console.error(`Couldn't sync with database: ${error.stack}`));
+  .catch((error) =>
+    console.error(`Couldn't sync with database: ${error.stack}`)
+  );

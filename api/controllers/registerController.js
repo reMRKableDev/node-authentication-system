@@ -1,4 +1,4 @@
-const Uzer = require("../database/models/Uzer");
+const Uzer = require("../../database/models/Uzer");
 const { validationResult } = require("express-validator/check");
 const bcrypt = require("bcrypt");
 
@@ -14,7 +14,7 @@ module.exports = {
       res.redirect("/register");
     } else {
       Uzer.count({ where: { name: req.body.username } })
-        .then(results => {
+        .then((results) => {
           if (results > 0) {
             req.flash(
               "errorUsername",
@@ -24,15 +24,15 @@ module.exports = {
           } else {
             bcrypt
               .hash(req.body.password, 10)
-              .then(hashedPassword => {
+              .then((hashedPassword) => {
                 Uzer.findOrCreate({
                   where: {
-                    email: req.body.email
+                    email: req.body.email,
                   },
                   defaults: {
                     name: req.body.username,
-                    password: hashedPassword
-                  }
+                    password: hashedPassword,
+                  },
                 })
                   .then(([results, created]) => {
                     if (created === false) {
@@ -46,22 +46,22 @@ module.exports = {
                       res.redirect("/profile");
                     }
                   })
-                  .catch(error => {
+                  .catch((error) => {
                     console.error(
                       `Something went wrong when creating user: ${error.stack}`
                     );
                   });
               })
-              .catch(error =>
+              .catch((error) =>
                 console.error(
                   `Something went wrong when hashing password: ${error.stack}`
                 )
               );
           }
         })
-        .catch(err =>
+        .catch((err) =>
           console.error(`Something went wrong with the count: ${err.stack}`)
         );
     }
-  }
+  },
 };
