@@ -49,6 +49,8 @@ app.use(
 );
 app.use(flash());
 
+app.use("/profile", require("./api/routes/profile.route"));
+
 /* Routes */
 app.get("/", isUserLoggedIn, getHome);
 
@@ -75,7 +77,6 @@ app.post(
 
 app.get("/login", isUserLoggedIn, getLoginPage);
 app.post("/login", postUserLogin);
-app.get("/profile", getProfile);
 app.get("/logout", getLogout);
 
 /* Start server & Run db */
