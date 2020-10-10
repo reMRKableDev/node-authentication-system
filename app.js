@@ -3,6 +3,8 @@ require("dotenv").config();
 /* Database configuration */
 const { connector } = require("./database/models/");
 
+const isUserLoggedIn = require("./middleware/isUserLoggedIn.middleware");
+
 /* Controllers */
 const getHome = require("./api/controllers/homeController");
 const getProfile = require("./api/controllers/profileController");
@@ -45,15 +47,6 @@ app.use(
   })
 );
 app.use(flash());
-
-/* Custom Middleware */
-let isUserLoggedIn = (req, res, next) => {
-  if (req.session.user && req.cookies.authCookie) {
-    res.redirect("/profile");
-  } else {
-    next();
-  }
-};
 
 /* Routes */
 app.get("/", isUserLoggedIn, getHome);

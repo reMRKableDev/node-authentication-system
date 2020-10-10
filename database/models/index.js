@@ -49,7 +49,7 @@ const db = {};
 
 db.Sequelize = Sequelize;
 db.connector = connector;
-db.user = require("./user.model")(Sequelize, connector);
+db.User = require("./user.model")(Sequelize, connector);
 
 /**
  * @module database/object
