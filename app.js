@@ -3,6 +3,8 @@ require("dotenv").config();
 /* Database configuration */
 const { connector } = require("./database/models/");
 
+const { sessionCookie, sessionSecret, port } = require("./config");
+
 const isUserLoggedIn = require("./middleware/isUserLoggedIn.middleware");
 
 /* Controllers */
@@ -27,7 +29,6 @@ const flash = require("express-flash");
 const { check } = require("express-validator/check");
 
 /* Application conf */
-const port = process.env.PORT || 3000;
 const app = express();
 
 /* Template engine setup */
@@ -40,8 +41,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
   session({
-    name: process.env.SESSION_COOKIE,
-    secret: process.env.SESSION_SECRET,
+    name: sessionCookie,
+    secret: sessionSecret,
     resave: false,
     saveUninitialized: false,
   })

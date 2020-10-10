@@ -7,6 +7,7 @@ const {
   DB_HOST,
   SESSION_COOKIE,
   SESSION_SECRET,
+  PORT,
 } = process.env;
 
 module.exports = {
@@ -19,4 +20,7 @@ module.exports = {
   /* Session configs */
   sessionCookie: SESSION_COOKIE,
   sessionSecret: SESSION_SECRET,
+
+  /* Port configs*/
+  port: PORT,
 };
