@@ -6,9 +6,9 @@
  * @param {*} next
  */
 module.exports = (req, res, next) => {
-  if (req.session.user && req.cookies.nodeCookie) {
-    res.redirect("/profile");
-  } else {
-    next();
-  }
+  const { session, cookies } = req;
+
+  session.user && cookies.nodeCookie
+    ? res.status(200).redirect("/profile")
+    : next();
 };
