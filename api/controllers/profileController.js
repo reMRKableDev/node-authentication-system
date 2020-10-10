@@ -1,6 +1,8 @@
 module.exports = (req, res) => {
-  if (req.session.user && req.cookies.nodeCookie) {
-    res.render("profile");
+  const { session, cookies } = req;
+
+  if (session.user && cookies.nodeCookie) {
+    res.render("profile", { user: session.user });
   } else {
     res.redirect("/login");
   }
