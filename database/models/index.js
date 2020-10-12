@@ -1,17 +1,23 @@
 /**
- * @const Sequelize                                     Sequelize ORM dependency
- *
- * @const {Object} config                               Object containing database configurations
- * @const {string} config.dbHost                        Database host value
- * @const {string} config.dbUser                        Database user value
- * @const {string} config.dbPassword                    Database password value
- * @const {string} config.dbName                        Database name value
- *
- * @function authenticateDb                             Database authentication helper
+ * Sequelize ORM dependency
+ * @module Sequelize
  */
 const Sequelize = require("sequelize");
 
+/**
+ * @type {Object} config
+ * @type {string} config.dbHost
+ * @type {string} config.dbUser
+ * @type {string} config.dbPassword
+ * @type {string} config.dbName
+ */
 const { dbName, dbUser, dbHost, dbPassword } = require("../../config/");
+
+/**
+ * Database authentication helper
+ * @module authenticateDb
+ */
+
 const authenticateDb = require("../helpers/authenticateDb.helper");
 
 /**
@@ -40,10 +46,10 @@ authenticateDb(connector, dbName);
  * Initiates a database object with the connector, models, and associations.
  *
  * @const db                                            Database object
- * @type {Sequelize.constructor}                        db.Sequelize
- * @type {Sequelize.instance}                           db.connector
- * @type {Sequelize.model}                              db.readingList
- * @type {Sequelize.model}                              db.book
+ * @type {Sequelize.constructor}
+ * @type {Sequelize.instance}
+ * @type {Sequelize.model}
+ * @type {Sequelize.model}
  */
 const db = {};
 

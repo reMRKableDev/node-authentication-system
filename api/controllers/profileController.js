@@ -1,9 +1,11 @@
 /**
  * Profile route controller
  * @module
+ * @function
  *
- * @param {*} req
- * @param {*} res
+ * @param {object} req - Incoming request object
+ * @param {object} res - Outbound response object
+ * @returns {string} - Value of a view to be rendered or redirected URL
  */
 module.exports = (req, res) => {
   const { session, cookies } = req;

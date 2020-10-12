@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "doc": "jsdoc -c jsdoc.json"
   },
   "author": "Malcolm R. Kente",
   "license": "ISC",
@@ -22,5 +22,8 @@
     "pg": "^8.0.0",
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.0.0"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.6.6"
   }
 }
