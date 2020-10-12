@@ -3,9 +3,9 @@
  * @module authenticateDb
  * @function
  *
- * @param {Object} connector
- * @param {string} dbName
- * 
+ * @param {Object} connector - Sequelize instance that connects to the database
+ * @param {string} dbName - Name of the database
+ *
  * @returns {string} database authentication validation
  */
 module.exports = async (connector, dbName) => {

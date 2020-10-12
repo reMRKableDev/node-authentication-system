@@ -20,11 +20,8 @@ const connector = new Sequelize(dbName, dbUser, dbPassword, {
 });
 
 /**
- * Authenticate connection to the correct database
- * @function authenticateDb
- *
- * @param {Object} connector
- * @param {string} dbName
+ * @param {Object} connector - Sequelize instance that connects to the database
+ * @param {string} dbName - Name of the database
  */
 authenticateDb(connector, dbName);
 
