@@ -1,8 +1,16 @@
+/**
+ * Logout route controller
+ * @module
+ * @function
+ * 
+ * @param {object} req - Incoming request object
+ * @param {object} res - Outbound response object
+ * @returns {string} - Value of redirected URL
+ */
 module.exports = (req, res) => {
-  if (req.session.user && req.cookies.nodeCookie) {
-    res.clearCookie("authCookie");
-    res.redirect("/");
-  } else {
-    res.redirect("/login");
-  }
+  const { session, cookies } = req;
+
+  return session.user && cookies.nodeCookie
+    ? res.clearCookie("nodeCookie") && res.redirect("/")
+    : res.redirect("/login");
 };

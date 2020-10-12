@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: middleware/isUserLoggedIn.middleware.js</title>
+    <title>JSDoc: Source: api/controllers/logoutController.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: middleware/isUserLoggedIn.middleware.js</h1>
+    <h1 class="page-title">Source: api/controllers/logoutController.js</h1>
 
     
 
@@ -27,18 +27,20 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Check if the user is logged in
+ * Logout route controller
  * @module
- * @param {*} req
- * @param {*} res
- * @param {*} next
+ * @function
+ * 
+ * @param {object} req - Incoming request object
+ * @param {object} res - Outbound response object
+ * @returns {string} - Value of redirected URL
  */
-module.exports = (req, res, next) => {
+module.exports = (req, res) => {
   const { session, cookies } = req;
 
-  session.user &amp;&amp; cookies.nodeCookie
-    ? res.status(200).redirect("/profile")
-    : next();
+  return session.user &amp;&amp; cookies.nodeCookie
+    ? res.clearCookie("nodeCookie") &amp;&amp; res.redirect("/")
+    : res.redirect("/login");
 };
 </code></pre>
         </article>
