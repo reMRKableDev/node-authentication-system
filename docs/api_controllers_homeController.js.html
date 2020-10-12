@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: api/controllers/homeController.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,28 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: api/controllers/homeController.js</h1>
 
     
 
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Home route controller
+ * @module
+ * @function
+ *  
+ * @param {object} _ - Unused request argument
+ * @param {object} res - Outbound response object 
+ * @returns {string} - Value of a view to be rendered
+ */
+module.exports = (_, res) => res.status(200).render("index");
+</code></pre>
+        </article>
+    </section>
 
 
 
