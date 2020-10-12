@@ -1,9 +1,12 @@
 /**
  * Authenticate connection to the correct database
  * @module authenticateDb
+ * @function
  *
- * @param {*} connector
- * @param {*} dbName
+ * @param {Object} connector
+ * @param {string} dbName
+ * 
+ * @returns {string} database authentication validation
  */
 module.exports = async (connector, dbName) => {
   try {

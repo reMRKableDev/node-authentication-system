@@ -1,10 +1,12 @@
 /**
  * Users model definition
- * @function userModel
- * @module
+ * @module userModel
+ * @function
  *
- * @param {*} Sequelize
- * @param {*} connector
+ * @param {Object} Sequelize
+ * @param {Object} connector
+ * 
+ * @returns {Object} user model
  */
 module.exports = (Sequelize, connector) =>
   connector.define("user", {
