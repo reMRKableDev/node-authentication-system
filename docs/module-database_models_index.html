@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: database/helpers/authenticateDb.helper.js</title>
+    <title>JSDoc: Module: database/models/index</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,36 +17,132 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: database/helpers/authenticateDb.helper.js</h1>
+    <h1 class="page-title">Module: database/models/index</h1>
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>/**
- * Authenticate connection to the correct database
- * @module authenticateDb
- * @function
- *
- * @param {Object} connector
- * @param {string} dbName
- * 
- * @returns {string} database authentication validation
- */
-module.exports = async (connector, dbName) => {
-  try {
-    await connector.authenticate();
-    console.log(`Authentication to ${dbName} was a success!`);
-  } catch (error) {
-    console.error(`Couldn't authenticate connection to ${dbName}`);
-  }
-};
-</code></pre>
-        </article>
-    </section>
+        
+            
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>Database object with</p></div>
+        
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="database_models_index.js.html">database/models/index.js</a>, <a href="database_models_index.js.html#line45">line 45</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
