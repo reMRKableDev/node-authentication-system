@@ -9,8 +9,9 @@
  */
 module.exports = (req, res) => {
   const { session, cookies } = req;
+  const { sessionCookie } = require("../../config");
 
-  return session.user && cookies.nodeCookie
+  return session.user && cookies[sessionCookie]
     ? res.status(200).render("profile", { userName: session.user.name })
     : res.status(200).redirect("/login");
 };

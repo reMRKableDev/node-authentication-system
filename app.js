@@ -9,7 +9,6 @@ const isUserLoggedIn = require("./middleware/isUserLoggedIn.middleware");
 
 /* Controllers */
 const getHome = require("./api/controllers/homeController");
-const getProfile = require("./api/controllers/profileController");
 const getLogout = require("./api/controllers/logoutController");
 const {
   getRegistrationPage,
