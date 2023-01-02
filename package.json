@@ -24,6 +24,6 @@
     "sequelize": "^6.0.0"
   },
   "devDependencies": {
-    "jsdoc": "^3.6.6"
+    "jsdoc": "^3.6.11"
   }
 }
