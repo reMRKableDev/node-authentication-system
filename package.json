@@ -10,7 +10,7 @@
   "author": "Malcolm R. Kente",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.0",
+    "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.10",
